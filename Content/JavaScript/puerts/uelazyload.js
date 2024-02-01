@@ -966,6 +966,7 @@ var global = global || (function () { return this; }());
             for (var i = 0; i < len; ++i) {
                 ret = Reflect.apply(list[i], this, args);
             }
+            console.log("Wtf",ret,len,list)
             return ret;
         }
     }

@@ -99,3 +99,17 @@ public:
     UPROPERTY()
     FVector VP;
 };
+
+UCLASS()
+class PUERTS_UNREAL_DEMO_API APuertsTestActor : public AActor
+{
+	GENERATED_BODY()
+public:
+	UFUNCTION(BlueprintCallable, Category = "Misc")
+		void Fire();
+
+	DECLARE_DYNAMIC_DELEGATE_RetVal(FVector, FOnFireDelegate);
+
+	UPROPERTY()
+		FOnFireDelegate OnFireDelegate;
+};

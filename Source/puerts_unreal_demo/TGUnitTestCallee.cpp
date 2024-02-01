@@ -40,3 +40,9 @@ void UTGUnitTestCallee::CustomStructRefNoRet(FCustomStruct& Data)
 {
     UE_LOG(LogTemp, Warning, TEXT("CustomStructRefNoRet(%p)"), &Data);
 }
+
+
+void APuertsTestActor::Fire()
+{
+    this->OnFireDelegate.Execute();
+}
