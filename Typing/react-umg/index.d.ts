@@ -994,6 +994,13 @@ declare module "react-umg" {
         nativePtr: UE.SinglePropertyView;
     }
 
+    interface TakeRecorderOverlayWidgetProps extends UserWidgetProps {
+    }
+
+    class TakeRecorderOverlayWidget extends React.Component<TakeRecorderOverlayWidgetProps> {
+        nativePtr: UE.TakeRecorderOverlayWidget;
+    }
+
     interface EditorUtilityWidgetProps extends UserWidgetProps {
         TabDisplayName?: string;
         HelpText?: string;
@@ -1003,13 +1010,6 @@ declare module "react-umg" {
 
     class EditorUtilityWidget extends React.Component<EditorUtilityWidgetProps> {
         nativePtr: UE.EditorUtilityWidget;
-    }
-
-    interface TakeRecorderOverlayWidgetProps extends UserWidgetProps {
-    }
-
-    class TakeRecorderOverlayWidget extends React.Component<TakeRecorderOverlayWidgetProps> {
-        nativePtr: UE.TakeRecorderOverlayWidget;
     }
 
     interface RadialSliderProps extends WidgetProps {

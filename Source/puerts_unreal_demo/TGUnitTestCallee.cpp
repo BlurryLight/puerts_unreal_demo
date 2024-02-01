@@ -42,6 +42,16 @@ void UTGUnitTestCallee::CustomStructRefNoRet(FCustomStruct& Data)
 }
 
 
+int UTGUnitTestCallee::Add(int a, int b)
+{
+    return a + b;
+}
+
+int UTGUnitTestCallee::StaticAdd(int a, int b)
+{
+    return a + b;
+}
+
 void APuertsTestActor::Fire()
 {
     this->OnFireDelegate.Execute();

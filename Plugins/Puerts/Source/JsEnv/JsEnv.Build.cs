@@ -41,7 +41,7 @@ public class JsEnv : ModuleRules
 #if UE_5_3_OR_LATER
         PCHUsage = PCHUsageMode.NoPCHs;
 #endif
-        OptimizeCode = CodeOptimization.InShippingBuildsOnly;
+        // OptimizeCode = CodeOptimization.InShippingBuildsOnly;
         PublicDefinitions.Add("USING_IN_UNREAL_ENGINE");
         // PublicDefinitions.Add("WITH_V8_FAST_CALL");
         

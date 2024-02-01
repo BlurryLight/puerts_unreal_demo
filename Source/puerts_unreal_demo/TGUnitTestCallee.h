@@ -98,6 +98,12 @@ public:
 
     UPROPERTY()
     FVector VP;
+	
+    UFUNCTION(BlueprintCallable, Category = "Puerts|TestCase")
+    int Add(int a,int b);
+
+    UFUNCTION(BlueprintCallable, Category = "Puerts|TestCase")
+	static int StaticAdd(int a, int b);
 };
 
 UCLASS()

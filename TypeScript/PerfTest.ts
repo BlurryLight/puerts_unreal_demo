@@ -1,7 +1,7 @@
 import { $ref, $unref } from 'puerts';
 import * as UE from 'ue'
 
-let testobj:any = new UE.TGUnitTestCallee();
+let testobj:UE.TGUnitTestCallee= new UE.TGUnitTestCallee();
 //let cs = $ref(new UE.CustomStruct());
 //testobj.sCustomStructRefNoRet(cs);
 
@@ -176,6 +176,57 @@ for(var i = 0; i < LOOP_COUNT; i++) {
 }
 endTime = new Date();
 console.log ("1m sTArrayRet using " + (endTime.getTime() - beginTime.getTime()) + "ms");
+
+console.log ("---------反射调用----");
+
+beginTime = new Date();
+for(var i = 0; i < LOOP_COUNT; i++) {
+    let x = testobj.Add(1,2)
+}
+endTime = new Date();
+console.log ("1m UFunction Add using " + (endTime.getTime() - beginTime.getTime()) + "ms");
+
+beginTime = new Date();
+for(var i = 0; i < LOOP_COUNT; i++) {
+  UE.TGUnitTestCallee.StaticAdd(1, 2);
+}
+endTime = new Date();
+console.log ("1m UFunction StaticAdd using " + (endTime.getTime() - beginTime.getTime()) + "ms");
+
+let uAddfunc  = UE.TGUnitTestCallee.StaticAdd;
+beginTime = new Date();
+for(var i = 0; i < LOOP_COUNT; i++) {
+  uAddfunc(1, 2);
+}
+endTime = new Date();
+console.log ("1m UFunction 拷贝成addFunc Static Add using " + (endTime.getTime() - beginTime.getTime()) + "ms");
+
+console.log ("---------静态绑定----");
+beginTime = new Date();
+for(var i = 0; i < LOOP_COUNT; i++) {
+    let x = testobj.sAdd(1,2)
+}
+endTime = new Date();
+console.log ("1m static Add Method using " + (endTime.getTime() - beginTime.getTime()) + "ms");
+
+beginTime = new Date();
+for(var i = 0; i < LOOP_COUNT; i++) {
+  UE.TGUnitTestCallee.sStaticAdd(1, 2);
+}
+endTime = new Date();
+console.log ("1m static sStaticAdd using " + (endTime.getTime() - beginTime.getTime()) + "ms");
+
+
+beginTime = new Date();
+let addfunc  = UE.TGUnitTestCallee.sStaticAdd;
+
+for(var i = 0; i < LOOP_COUNT; i++) {
+  addfunc(1, 2);
+}
+endTime = new Date();
+console.log ("1m static call 拷贝成addFunc Add using " + (endTime.getTime() - beginTime.getTime()) + "ms");
+
+console.log ("---------");
 
 let sarr:UE.TArray<number> = testobj.sTArrayRet();
 

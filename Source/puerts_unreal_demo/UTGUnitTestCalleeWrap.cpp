@@ -129,6 +129,8 @@ struct AutoRegisterForUTGUnitTestCallee
             .Method("StdStringPtr", MakeFunction(&UTGUnitTestCallee::StdStringPtr))
             .Property("sVP", MakeProperty(&UTGUnitTestCallee::VP))
             //.Property("sVP", &VPGet, &VPSet)
+            .Method("sAdd", MakeFunction(&UTGUnitTestCallee::Add))
+            .Function("sStaticAdd", MakeFunction(&UTGUnitTestCallee::StaticAdd))
             .Register();
 
         //需要返回到脚本里头使用需要注册

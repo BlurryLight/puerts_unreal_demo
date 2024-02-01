@@ -17,7 +17,7 @@ void UTsGameInstance::OnStart()
     TArray<TPair<FString, UObject*>> Arguments;
     Arguments.Add(TPair<FString, UObject*>(TEXT("GameInstance"), this));
     // GameScript->Start("QuickStart", Arguments);
-    GameScript->Start("delegateTest", Arguments);
+    GameScript->Start("PerfTest", Arguments);
 }
 
 void UTsGameInstance::Shutdown()
