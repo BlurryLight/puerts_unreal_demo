@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.printStatus = void 0;
+exports.tracePrototypeChainOf = exports.printStatus = void 0;
 function printStatus(fn) {
     var name = fn.name;
     // @ts-ignore
@@ -24,4 +24,15 @@ function printStatus(fn) {
     }
 }
 exports.printStatus = printStatus;
+function tracePrototypeChainOf(object) {
+    var proto = object.constructor.prototype;
+    var result = '';
+    while (proto) {
+        result += ' -> ' + proto.constructor.name + '.prototype';
+        proto = Object.getPrototypeOf(proto);
+    }
+    result += ' -> null';
+    return result;
+}
+exports.tracePrototypeChainOf = tracePrototypeChainOf;
 //# sourceMappingURL=utils.js.map

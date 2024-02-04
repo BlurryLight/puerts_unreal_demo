@@ -127,6 +127,7 @@ struct AutoRegisterForUTGUnitTestCallee
             .Method("IntPtr", MakeFunction(&UTGUnitTestCallee::IntPtr))
             .Method("StdStringRef", MakeFunction(&UTGUnitTestCallee::StdStringRef))
             .Method("StdStringPtr", MakeFunction(&UTGUnitTestCallee::StdStringPtr))
+            .Method("sFVectorRet", MakeFunction(&UTGUnitTestCallee::FVectorRet))
             .Property("sVP", MakeProperty(&UTGUnitTestCallee::VP))
             //.Property("sVP", &VPGet, &VPSet)
             .Method("sAdd", MakeFunction(&UTGUnitTestCallee::Add))

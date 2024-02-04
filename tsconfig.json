@@ -5,6 +5,7 @@
     "experimentalDecorators": true,
     "jsx": "react",
     "sourceMap": true,
+    "allowJs": true,
     "typeRoots": [
       "Typing",
       "./node_modules/@types"

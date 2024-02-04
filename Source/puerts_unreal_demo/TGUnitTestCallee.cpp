@@ -42,6 +42,11 @@ void UTGUnitTestCallee::CustomStructRefNoRet(FCustomStruct& Data)
 }
 
 
+FVector UTGUnitTestCallee::FVectorRet()
+{
+    return VP;
+}
+
 int UTGUnitTestCallee::Add(int a, int b)
 {
     return a + b;

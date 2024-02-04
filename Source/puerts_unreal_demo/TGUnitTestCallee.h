@@ -99,6 +99,9 @@ public:
     UPROPERTY()
     FVector VP;
 	
+	UFUNCTION(BlueprintCallable, Category = "Puerts|TestCase")
+	FVector FVectorRet();
+	
     UFUNCTION(BlueprintCallable, Category = "Puerts|TestCase")
     int Add(int a,int b);
 

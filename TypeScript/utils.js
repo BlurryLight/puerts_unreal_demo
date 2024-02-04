@@ -20,3 +20,17 @@ export function printStatus(fn) {
     break;
   }
 }
+
+export function tracePrototypeChainOf(object) {
+
+    var proto = object.constructor.prototype;
+    var result = '';
+
+    while (proto) {
+        result += ' -> ' + proto.constructor.name + '.prototype';
+        proto = Object.getPrototypeOf(proto)
+    }
+ 
+    result += ' -> null';
+    return result;
+}

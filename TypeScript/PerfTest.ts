@@ -1,6 +1,6 @@
 import {$ref, $unref} from 'puerts';
 import * as UE from 'ue'
-import {printStatus} from './utils';
+import {printStatus, tracePrototypeChainOf} from './utils';
 
 let testobj: UE.TGUnitTestCallee = new UE.TGUnitTestCallee();
 // let cs = $ref(new UE.CustomStruct());
@@ -101,6 +101,15 @@ endTime = new Date();
 console.log("1m TArrayRet using " + (endTime.getTime() - beginTime.getTime()) +
             "ms");
 
+beginTime = new Date();
+for (var i = 0; i < LOOP_COUNT; i++) {
+  // testobj.FVectorRet();
+}
+endTime = new Date();
+console.log("1m FVectorRet using " + (endTime.getTime() - beginTime.getTime()) +
+            "ms");
+           
+
 let arr: UE.TArray<number> = testobj.TArrayRet();
 
 arr.Add(100);
@@ -195,6 +204,15 @@ endTime = new Date();
 console.log("1m sTArrayRet using " + (endTime.getTime() - beginTime.getTime()) +
             "ms");
 
+beginTime = new Date();
+for (var i = 0; i < LOOP_COUNT; i++) {
+  testobj.sFVectorRet();
+}
+endTime = new Date();
+console.log("1m sFVectorRet" +
+            (endTime.getTime() - beginTime.getTime()) + "ms");
+
+
 console.log("---------反射调用----");
 
 beginTime = new Date();
@@ -231,19 +249,20 @@ endTime = new Date();
 console.log("1m static Add Method using " +
             (endTime.getTime() - beginTime.getTime()) + "ms");
 
-let tg = UE.TGUnitTestCallee
 beginTime = new Date();
+
 for (var i = 0; i < LOOP_COUNT; i++) {
-  tg.sStaticAdd(1, 2);
+  UE.TGUnitTestCallee.sStaticAdd(1, 2);
 }
 endTime = new Date();
 console.log("1m static sStaticAdd using " +
             (endTime.getTime() - beginTime.getTime()) + "ms");
 
-beginTime = new Date();
 
+let tg = UE.TGUnitTestCallee
+beginTime = new Date();
 for (var i = 0; i < LOOP_COUNT; i++) {
-  UE.TGUnitTestCallee.sStaticAdd(1, 2);
+  tg.sStaticAdd(1, 2);
 }
 endTime = new Date();
 console.log("1m static call 拷贝成addFunc Add using " +
@@ -253,6 +272,7 @@ printStatus(UE.TGUnitTestCallee.sStaticAdd)
 console.log("UE has how many keys", Object.keys(UE).length);
 console.log(JSON.stringify(Object.keys(UE)));
 console.log(UE.TGUnitTestCallee);
+console.log(tracePrototypeChainOf(UE.TGUnitTestCallee))
 console.log("---------");
 
 let sarr: UE.TArray<number> = testobj.sTArrayRet();

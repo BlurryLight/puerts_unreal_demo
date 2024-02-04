@@ -9,10 +9,14 @@
             "request": "attach",
             "name": "Launch",
             "protocol": "inspector",
-            "port": 8080,
+            "port": 8081,
             "sourceMaps": true,
             // you can comment out "remoteRoot" config or replace it's ${workspaceRoot} with ${workspaceFolder} when you use a new visual studio code
-            "remoteRoot": "${workspaceRoot}Content/JavaScript"
+            // "remoteRoot": "${workspaceRoot}/Content/JavaScript"
+            "outFiles": [
+                "${workspaceFolder}/Content/JavaScript/**/*.js",
+                "!**/node_modules/**"
+            ]
         }
     ]
 }

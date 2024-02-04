@@ -88,6 +88,13 @@ for (var i = 0; i < LOOP_COUNT; i++) {
 endTime = new Date();
 console.log("1m TArrayRet using " + (endTime.getTime() - beginTime.getTime()) +
     "ms");
+beginTime = new Date();
+for (var i = 0; i < LOOP_COUNT; i++) {
+    // testobj.FVectorRet();
+}
+endTime = new Date();
+console.log("1m FVectorRet using " + (endTime.getTime() - beginTime.getTime()) +
+    "ms");
 let arr = testobj.TArrayRet();
 arr.Add(100);
 console.log(arr.Num(), arr.Get(0));
@@ -169,6 +176,13 @@ for (var i = 0; i < LOOP_COUNT; i++) {
 endTime = new Date();
 console.log("1m sTArrayRet using " + (endTime.getTime() - beginTime.getTime()) +
     "ms");
+beginTime = new Date();
+for (var i = 0; i < LOOP_COUNT; i++) {
+    testobj.sFVectorRet();
+}
+endTime = new Date();
+console.log("1m sFVectorRet" +
+    (endTime.getTime() - beginTime.getTime()) + "ms");
 console.log("---------反射调用----");
 beginTime = new Date();
 for (var i = 0; i < LOOP_COUNT; i++) {
@@ -200,17 +214,17 @@ for (var i = 0; i < LOOP_COUNT; i++) {
 endTime = new Date();
 console.log("1m static Add Method using " +
     (endTime.getTime() - beginTime.getTime()) + "ms");
-let tg = UE.TGUnitTestCallee;
 beginTime = new Date();
 for (var i = 0; i < LOOP_COUNT; i++) {
-    tg.sStaticAdd(1, 2);
+    UE.TGUnitTestCallee.sStaticAdd(1, 2);
 }
 endTime = new Date();
 console.log("1m static sStaticAdd using " +
     (endTime.getTime() - beginTime.getTime()) + "ms");
+let tg = UE.TGUnitTestCallee;
 beginTime = new Date();
 for (var i = 0; i < LOOP_COUNT; i++) {
-    UE.TGUnitTestCallee.sStaticAdd(1, 2);
+    tg.sStaticAdd(1, 2);
 }
 endTime = new Date();
 console.log("1m static call 拷贝成addFunc Add using " +
@@ -219,6 +233,7 @@ console.log("1m static call 拷贝成addFunc Add using " +
 console.log("UE has how many keys", Object.keys(UE).length);
 console.log(JSON.stringify(Object.keys(UE)));
 console.log(UE.TGUnitTestCallee);
+console.log((0, utils_1.tracePrototypeChainOf)(UE.TGUnitTestCallee));
 console.log("---------");
 let sarr = testobj.sTArrayRet();
 sarr.Add(100);
