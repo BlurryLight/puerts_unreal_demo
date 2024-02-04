@@ -339,8 +339,8 @@ FJsEnvImpl::FJsEnvImpl(std::shared_ptr<IJSModuleLoader> InModuleLoader, std::sha
     v8::V8::SetFlagsFromString(FCFlags, sizeof(FCFlags));
 #endif
 
-    // char GCFlags[] = "--expose-gc";
-    // v8::V8::SetFlagsFromString(GCFlags, sizeof(GCFlags));
+    char GCFlags[] = "--expose-gc --allow-natives-syntax";
+    v8::V8::SetFlagsFromString(GCFlags, sizeof(GCFlags));
 
     if (!InFlags.IsEmpty())
     {

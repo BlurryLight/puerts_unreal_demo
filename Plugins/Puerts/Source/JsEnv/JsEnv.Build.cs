@@ -43,7 +43,7 @@ public class JsEnv : ModuleRules
 #endif
         // OptimizeCode = CodeOptimization.InShippingBuildsOnly;
         PublicDefinitions.Add("USING_IN_UNREAL_ENGINE");
-        // PublicDefinitions.Add("WITH_V8_FAST_CALL");
+        PublicDefinitions.Add("WITH_V8_FAST_CALL");
         
         PublicDefinitions.Add("TS_BLUEPRINT_PATH=\"/Blueprints/TypeScript/\"");
         
