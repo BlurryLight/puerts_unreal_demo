@@ -128,10 +128,13 @@ struct AutoRegisterForUTGUnitTestCallee
             .Method("StdStringRef", MakeFunction(&UTGUnitTestCallee::StdStringRef))
             .Method("StdStringPtr", MakeFunction(&UTGUnitTestCallee::StdStringPtr))
             .Method("sFVectorRet", MakeFunction(&UTGUnitTestCallee::FVectorRet))
+            .Method("sFVectorRet2", MakeFunction(&UTGUnitTestCallee::FVectorRet2))
+            .Method("sFVectorRet3", MakeFunction(&UTGUnitTestCallee::FVectorRet3))
             .Property("sVP", MakeProperty(&UTGUnitTestCallee::VP))
             //.Property("sVP", &VPGet, &VPSet)
             .Method("sAdd", MakeFunction(&UTGUnitTestCallee::Add))
             .Function("sStaticAdd", MakeFunction(&UTGUnitTestCallee::StaticAdd))
+            .Function("sStaticReturnVec", MakeFunction(&UTGUnitTestCallee::StaticReturnFVector))
             .Register();
 
         //需要返回到脚本里头使用需要注册

@@ -47,6 +47,18 @@ FVector UTGUnitTestCallee::FVectorRet()
     return VP;
 }
 
+void UTGUnitTestCallee::FVectorRet2(double& OutX, double& OutY, double& OutZ)
+{
+    OutX = VP.X;
+    OutY = VP.Y;
+    OutZ = VP.Z;
+}
+
+void UTGUnitTestCallee::FVectorRet3(FVector& OutVec)
+{
+    OutVec = VP;
+}
+
 int UTGUnitTestCallee::Add(int a, int b)
 {
     return a + b;
@@ -55,6 +67,11 @@ int UTGUnitTestCallee::Add(int a, int b)
 int UTGUnitTestCallee::StaticAdd(int a, int b)
 {
     return a + b;
+}
+
+FVector UTGUnitTestCallee::StaticReturnFVector()
+{
+    return FVector(0,1,2);
 }
 
 void APuertsTestActor::Fire()

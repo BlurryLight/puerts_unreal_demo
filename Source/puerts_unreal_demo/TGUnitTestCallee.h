@@ -102,11 +102,18 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Puerts|TestCase")
 	FVector FVectorRet();
 	
+	UFUNCTION(BlueprintCallable, Category = "Puerts|TestCase")
+	void FVectorRet2(double& OutX, double& OutY,double& OutZ);
+	
+	void FVectorRet3(FVector& OutVec);
+	
     UFUNCTION(BlueprintCallable, Category = "Puerts|TestCase")
     int Add(int a,int b);
 
     UFUNCTION(BlueprintCallable, Category = "Puerts|TestCase")
 	static int StaticAdd(int a, int b);
+	
+	static FVector StaticReturnFVector();
 };
 
 UCLASS()
