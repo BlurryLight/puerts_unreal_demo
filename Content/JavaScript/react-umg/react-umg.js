@@ -25,11 +25,6 @@ function deepEquals(x, y) {
     return true;
 }
 class UEWidget {
-    type;
-    callbackRemovers;
-    nativePtr;
-    slot;
-    nativeSlotPtr;
     constructor(type, props) {
         this.type = type;
         this.callbackRemovers = {};
@@ -147,8 +142,6 @@ class UEWidget {
     }
 }
 class UEWidgetRoot {
-    nativePtr;
-    Added;
     constructor(nativePtr) {
         this.nativePtr = nativePtr;
     }

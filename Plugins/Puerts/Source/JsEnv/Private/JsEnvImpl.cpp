@@ -1764,6 +1764,8 @@ v8::Local<v8::Value> FJsEnvImpl::FindOrAddStruct(
     v8::Isolate* Isolate, v8::Local<v8::Context>& Context, UScriptStruct* ScriptStruct, void* Ptr, bool PassByPointer)
 {
     check(Ptr);    // must not null
+    // GenListApply.Get(Isolate)->Call(Context, v8::Undefined(Isolate), 0, nullptr);
+    return v8::Object::New(Isolate);
 
     auto HeaderPtr = StructCache.Find(Ptr);
     if (HeaderPtr)

@@ -10,7 +10,8 @@
       "Typing",
       "./node_modules/@types"
     ],
-    "outDir": "Content/JavaScript"
+    "outDir": "Content/JavaScript",
+    "useDefineForClassFields":false
   },
   "include": [
     "TypeScript/**/*"

@@ -5,7 +5,6 @@ const puerts_1 = require("puerts");
 let gameInstance = puerts_1.argv.getByName("GameInstance");
 //JS继承一个原生类
 class MyActor extends UE.Actor {
-    tickCount;
     //注意，继承UE类的js类，构造函数必须大写开头
     Constructor() {
         this.PrimaryActorTick.bCanEverTick = true;

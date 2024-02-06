@@ -11,6 +11,8 @@ let SlotOfProgressBar = {
 class StatusBar extends React.Component {
     constructor(props) {
         super(props);
+        this.onIncrement = () => this.setState({ percent: this.state.percent + 0.01 });
+        this.onDecrement = () => this.setState({ percent: this.state.percent - 0.01 });
         if ((props.initialPercent || 0) < 0) {
             throw new Error('initialPercent < 0');
         }
@@ -21,8 +23,6 @@ class StatusBar extends React.Component {
     get color() {
         return { R: 1 - this.state.percent, G: 0, B: this.state.percent };
     }
-    onIncrement = () => this.setState({ percent: this.state.percent + 0.01 });
-    onDecrement = () => this.setState({ percent: this.state.percent - 0.01 });
     render() {
         return (React.createElement(react_umg_1.HorizontalBox, null,
             React.createElement(react_umg_1.TextBlock, { Text: `${this.props.name}(${this.state.percent.toFixed(2)})` }),

@@ -15,7 +15,6 @@ let SlotOfVerticalBox = {
     }
 };
 class Hello extends React.Component {
-    buttonTextures;
     constructor(props) {
         super(props);
         this.state = {
@@ -31,8 +30,7 @@ class Hello extends React.Component {
         return (React.createElement(react_umg_1.CanvasPanel, null,
             React.createElement(react_umg_1.VerticalBox, { Slot: SlotOfVerticalBox },
                 React.createElement(react_umg_1.HorizontalBox, null,
-                    React.createElement(react_umg_1.Button, { OnHovered: () => this.setState({ buttonTextureIndex: 1 }), OnUnhovered: () => this.setState({ buttonTextureIndex: 0 }) },
-                        React.createElement(react_umg_1.TextureImage, { TextureName: this.buttonTextures[this.state.buttonTextureIndex], bMatchSize: true }))),
+                    React.createElement(react_umg_1.Button, { OnHovered: () => this.setState({ buttonTextureIndex: 1 }), OnUnhovered: () => this.setState({ buttonTextureIndex: 0 }) })),
                 this.state.names.map((name, idx) => React.createElement(ui_components_1.StatusBar, { name: name, key: idx })))));
     }
 }

@@ -1001,6 +1001,17 @@ declare module "react-umg" {
         nativePtr: UE.TakeRecorderOverlayWidget;
     }
 
+    interface EditorUtilityWidgetProps extends UserWidgetProps {
+        TabDisplayName?: string;
+        HelpText?: string;
+        bAlwaysReregisterWithWindowsMenu?: boolean;
+        bAutoRunDefaultAction?: boolean;
+    }
+
+    class EditorUtilityWidget extends React.Component<EditorUtilityWidgetProps> {
+        nativePtr: UE.EditorUtilityWidget;
+    }
+
     interface RadialSliderProps extends WidgetProps {
         Value?: number;
         ValueDelegate?: () => number;
@@ -1183,17 +1194,6 @@ declare module "react-umg" {
 
     class SynthKnob extends React.Component<SynthKnobProps> {
         nativePtr: UE.SynthKnob;
-    }
-
-    interface EditorUtilityWidgetProps extends UserWidgetProps {
-        TabDisplayName?: string;
-        HelpText?: string;
-        bAlwaysReregisterWithWindowsMenu?: boolean;
-        bAutoRunDefaultAction?: boolean;
-    }
-
-    class EditorUtilityWidget extends React.Component<EditorUtilityWidgetProps> {
-        nativePtr: UE.EditorUtilityWidget;
     }
 
     interface ReactWidgetProps extends UserWidgetProps {
