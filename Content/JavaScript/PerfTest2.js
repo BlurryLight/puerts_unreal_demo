@@ -61,11 +61,33 @@ console.log("1m obj add properties" +
     (endTime.getTime() - beginTime.getTime()) + "ms");
 // hidden class optimization
 class Point {
-    constructor(_x, _y, _z) {
-        this.x = _x;
-        this.y = _y;
-        this.z = _z;
+    constructor(...Args) {
+        this.__tid__Point = true;
+        this[0] = 0;
+        this[1] = 0;
+        this[2] = 0;
+        // switch(Args.length)
+        // {
+        //   case 3:
+        //     this.X = Args[0]
+        //     this.Y = Args[1]
+        //     this.Z = Args[2]
+        //   case 2:
+        //     this.X = Args[0]
+        //     this.Y = Args[1]
+        //     this.Z = 1;
+        //   default:
+        //     this.X = 0;
+        //     this.Y = 0;
+        //     this.Z = 0;
+        // }
     }
+    get X() { return this[0]; }
+    set X(f) { this[0] = f; }
+    get Y() { return this[1]; }
+    set Y(f) { this[1] = f; }
+    get Z() { return this[2]; }
+    set Z(f) { this[2] = f; }
 }
 ;
 beginTime = new Date();
