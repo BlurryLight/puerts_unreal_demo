@@ -25,6 +25,7 @@ function getCustomSystem(): ts.System {
     }
 
     function fileExists(path: string): boolean {
+        //@ts-ignore
         let res = UE.FileSystemOperation.FileExists(path);
         //console.log(`${path} exists? ${res}`);
         return res;
